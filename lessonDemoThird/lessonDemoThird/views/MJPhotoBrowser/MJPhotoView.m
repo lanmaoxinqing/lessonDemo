@@ -43,6 +43,8 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         // 监听点击
+//        UIPanGestureRecognizer
+//        UISwipeGestureRecognizer
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
         singleTap.delaysTouchesBegan = YES;
         singleTap.numberOfTapsRequired = 1;

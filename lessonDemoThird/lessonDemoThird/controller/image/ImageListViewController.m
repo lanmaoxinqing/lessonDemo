@@ -43,7 +43,7 @@
             [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone:YES];
         }
     }];
-
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -60,6 +60,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Img *img=imgList_[indexPath.section];
     ImageTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ImageTableViewCell" forIndexPath:indexPath];
+    
+//    ImageTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ImageTableViewCell"];
+//    if(!cell){
+//        cell=(ImageTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"ImageTableViewCell" owner:nil options:nil][0];
+//    }
+    
     cell.pics=img.pics;
     return cell;
 }
