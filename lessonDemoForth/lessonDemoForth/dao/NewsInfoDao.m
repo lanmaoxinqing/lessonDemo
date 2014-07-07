@@ -11,10 +11,10 @@
 @implementation NewsInfoDao
 
 -(NSArray *)selectNewsInfosbyType:(NSInteger)type AtPage:(NSInteger)page{
-    FMResultSet *result=[self executeQuery:@"select * from newsInfo where type=%d and rownum>%d and rownum<%d",type,(page-1)*10,page*10];
-    while ([result next]) {
-        <#statements#>
-    }
+    BaseDao *baseDao=[BaseDao sharedDao];
+    NSString *sql=[NSString stringWithFormat:@"select * from newsInfo where type=%d limit %d,%d",type,(page-1)*10,page*10];
+    FMResultSet *result=[baseDao executeQuery:sql];
+    return [baseDao generateObjects:[NewsInfo class] byResult:result];
 };
 
 @end

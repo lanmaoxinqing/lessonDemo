@@ -12,10 +12,18 @@
 
 @interface BaseDao : FMDatabase
 
-+(BaseDao *)sharedDao;
-
--(BOOL)executeSQL:(NSString *)sqlStr;
++(instancetype)sharedDao;
 
 -(BOOL)createTableByClass:(Class)className;
+
+-(BOOL)executeSQL:(NSString *)sqlStr;
+-(BOOL)batchExecuteSQLs:(NSArray *)sqlArr;
+
+-(BOOL)insert:(NSObject *)obj;
+-(BOOL)update:(NSObject *)obj;
+-(BOOL)insertOrUpdate:(NSObject *)obj;
+-(BOOL)batchInsertOrUpdate:(NSArray *)objects;
+
+-(NSArray *)generateObjects:(Class)className byResult:(FMResultSet *)result;
 
 @end

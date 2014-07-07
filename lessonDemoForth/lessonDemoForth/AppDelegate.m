@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "WelcomeViewController.h"
 #import "BaseDao.h"
-#import "TestInfo.h"
+#import "NewsInfo.h"
 
 @implementation AppDelegate
 
@@ -21,10 +21,7 @@
     [self.window makeKeyAndVisible];
     WelcomeViewController *welcomeVC=[[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:nil];
     self.window.rootViewController=welcomeVC;
-    
-    BaseDao *baseDao=[BaseDao sharedDao];
-    [baseDao createTableByClass:[TestInfo class]];
-    
+    [[BaseDao sharedDao] createTableByClass:[NewsInfo class]];
     return YES;
 }
 

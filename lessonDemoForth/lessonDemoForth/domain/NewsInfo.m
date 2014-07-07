@@ -13,7 +13,7 @@
 -(id)initWithDictionary:(NSDictionary *)dic{
     self=[super init];
     if(self && dic){
-        _newsId=[[dic objectForKey:@"id"] longValue];
+        _sid=[[dic objectForKey:@"id"] longValue];
         _pic=[dic objectForKey:@"pic"];
         _pubDate=[dic objectForKey:@"pubDate"];
         _source=[dic objectForKey:@"source"];

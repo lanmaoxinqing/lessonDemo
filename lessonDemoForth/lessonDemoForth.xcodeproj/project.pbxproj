@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		337D142B196AC84300A90240 /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142A196AC84300A90240 /* NSObject+Property.m */; };
+		337D142E196AEEF300A90240 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142D196AEEF300A90240 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */; };
 		FA98579D19667E6200C8ABF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579C19667E6200C8ABF3 /* Foundation.framework */; };
 		FA98579F19667E6200C8ABF3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579E19667E6200C8ABF3 /* CoreGraphics.framework */; };
@@ -118,6 +120,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		337D1429196AC84300A90240 /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
+		337D142A196AC84300A90240 /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
+		337D142C196AEEF300A90240 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		337D142D196AEEF300A90240 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FA8E96CE196A3F82002E9DE7 /* NewsInfoDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoDao.h; sourceTree = "<group>"; };
 		FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoDao.m; sourceTree = "<group>"; };
 		FA98579919667E6200C8ABF3 /* lessonDemoForth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lessonDemoForth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,6 +471,8 @@
 				FA9857F319667EDB00C8ABF3 /* NewsInfo.m */,
 				FA9859F71966A46F00C8ABF3 /* TestInfo.h */,
 				FA9859F81966A46F00C8ABF3 /* TestInfo.m */,
+				337D1429196AC84300A90240 /* NSObject+Property.h */,
+				337D142A196AC84300A90240 /* NSObject+Property.m */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -518,6 +526,8 @@
 		FA98580719667EDB00C8ABF3 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				337D142C196AEEF300A90240 /* Reachability.h */,
+				337D142D196AEEF300A90240 /* Reachability.m */,
 				FA98580819667EDB00C8ABF3 /* BaseService.h */,
 				FA98580919667EDB00C8ABF3 /* BaseService.m */,
 				FA98580A19667EDB00C8ABF3 /* Sysconfig.h */,
@@ -823,6 +833,7 @@
 				FA98591319667EDB00C8ABF3 /* ImageListViewController.m in Sources */,
 				FA98598F19667EDB00C8ABF3 /* SDWebImageDownloaderOperation.m in Sources */,
 				FA98598A19667EDB00C8ABF3 /* NSData+ImageContentType.m in Sources */,
+				337D142E196AEEF300A90240 /* Reachability.m in Sources */,
 				FA98598E19667EDB00C8ABF3 /* SDWebImageDownloader.m in Sources */,
 				FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */,
 				FA98597F19667EDB00C8ABF3 /* MJPhotoLoadingView.m in Sources */,
@@ -846,6 +857,7 @@
 				FA98599519667EDB00C8ABF3 /* UIImage+MultiFormat.m in Sources */,
 				FA98591619667EDB00C8ABF3 /* BottomTabViewController.m in Sources */,
 				FA98592119667EDB00C8ABF3 /* NewsListViewController.m in Sources */,
+				337D142B196AC84300A90240 /* NSObject+Property.m in Sources */,
 				FA9859A91966805000C8ABF3 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,5 +14,6 @@
 
 +(NSObject *)bundleValueForKey:(NSString *)key;
 +(NSString *)filePathByName:(NSString *)fileName;
++(BOOL)isNetworkReachable;
 
 @end

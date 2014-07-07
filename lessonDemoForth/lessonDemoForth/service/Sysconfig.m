@@ -7,6 +7,7 @@
 //
 
 #import "Sysconfig.h"
+#import "Reachability.h"
 
 #define kRootFolder [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/"]
 
@@ -44,6 +45,30 @@ static NSMutableDictionary *bundleDic_;
     //合成完整路径
     filePath=[filePath stringByAppendingPathComponent:newName];
     return filePath;
+}
+
++(BOOL)isNetworkReachable{
+    // Create zero addy
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    // Recover reachability flags
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        return NO;
+    }
+    
+    BOOL isReachable = flags & kSCNetworkFlagsReachable;
+    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+    return (isReachable && !needsConnection) ? YES : NO;
 }
 
 @end

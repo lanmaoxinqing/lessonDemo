@@ -62,7 +62,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsInfo *info=news_[indexPath.row];
-    NSLog(@"id:%ld",info.newsId);
+    NSLog(@"id:%ld",info.sid);
     NewsDetailViewController *newsDetailVC=[[NewsDetailViewController alloc] initWithNibName:@"NewsDetailViewController" bundle:nil];
     newsDetailVC.newsInfo=info;
     [self.navigationController pushViewController:newsDetailVC animated:YES];

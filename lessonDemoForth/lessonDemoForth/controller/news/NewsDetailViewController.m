@@ -38,7 +38,7 @@
     //根据ID加载新闻详情
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     BaseService *base=[[BaseService alloc] init];
-    base.url=[NSString stringWithFormat:@"http://api.blbaidu.cn/API/New.ashx?id=%ld",_newsInfo.newsId];
+    base.url=[NSString stringWithFormat:@"http://api.blbaidu.cn/API/New.ashx?id=%ld",_newsInfo.sid];
     [base requestWithCompletionHandler:^(NSString *responseStr, NSURLResponse *response, NSError *error) {
         NSDictionary *responseDic=[responseStr objectFromJSONString];
         NSString *description=[responseDic objectForKey:@"description"];

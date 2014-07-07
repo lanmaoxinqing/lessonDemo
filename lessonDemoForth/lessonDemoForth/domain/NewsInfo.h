@@ -10,7 +10,7 @@
 
 @interface NewsInfo : NSObject
 
-@property(nonatomic,assign) long newsId;
+@property(nonatomic,assign) long sid;
 @property(nonatomic,assign) int type;
 @property(nonatomic,copy) NSString *title;
 @property(nonatomic,copy) NSString *author;

@@ -7,8 +7,9 @@
 //
 
 #import "BaseDao.h"
+#import "NewsInfo.h"
 
-@interface NewsInfoDao : BaseDao
+@interface NewsInfoDao : NSObject
 
 -(NSArray *)selectNewsInfosbyType:(NSInteger)type AtPage:(NSInteger)page;
 
