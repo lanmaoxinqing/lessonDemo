@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 #import "NewsTableViewCell.h"
 #import "NewsDetailViewController.h"
-#import "NewsInfoDao.h"
+#import "NewsInfoService.h"
 
 @interface AnnouncementListViewController ()
 
@@ -34,14 +34,8 @@
     //初始化数据源
     announcements_=[NSMutableArray new];
     [super viewDidLoad];
-    //从本地数据库读取数据
-    NewsInfoDao *infoDao=[NewsInfoDao new];
-    NSArray *localAnnouncementList=[infoDao selectNewsInfosbyType:205 AtPage:0];
-    [announcements_ addObjectsFromArray:localAnnouncementList];
-    [self reload];
-
-    //网络加载第一页公告
     [self requestAnnouncementByPage:currentPage_ shouldRefresh:YES];
+    //网络加载第一页公告
     MJRefreshHeaderView *headerView=[[MJRefreshHeaderView alloc] initWithScrollView:tableView_ beginRefreshingBlock:^(MJRefreshBaseView *refreshView) {
         refreshView_=refreshView;
         currentPage_=1;
@@ -63,36 +57,20 @@
 }
 
 -(void)requestAnnouncementByPage:(NSInteger)page shouldRefresh:(BOOL)refresh{
-    //网络加载
-    BaseService *base=[[BaseService alloc] init];
-    base.url=[NSString stringWithFormat:@"http://api.blbaidu.cn/API/News.ashx?cid=205&pageNo=%d",page];
-    [base requestWithCompletionHandler:^(NSString *responseStr, NSURLResponse *response, NSError *error) {
+    [NewsInfoService requestNewsInfosByType:205 atPage:page complete:^(id obj) {
         if(refresh){
             [announcements_ removeAllObjects];
         }
-        //解析json字符串
-        if(responseStr){
-            NSDictionary *responseDic=[responseStr objectFromJSONString];
-            if(responseDic){
-                NSArray *results=[responseDic objectForKey:@"result"];
-                NSMutableArray *infos=[NSMutableArray new];
-                if(results){
-                    for(NSDictionary *newsDic in results){
-                        //组装对象
-                        NewsInfo *newsInfo=[[NewsInfo alloc] initWithDictionary:newsDic];
-                        newsInfo.type=205;
-                        [infos addObject:newsInfo];
-                    }
-                    //刷新数据库
-                    BaseDao *infoDao=[BaseDao sharedDao];
-                    [infoDao batchInsertOrUpdate:infos];
-                    [announcements_ addObjectsFromArray:infos];
-                    [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone:YES];
-                }
-            }
+        if(obj){
+            [announcements_ addObjectsFromArray:obj];
         }
-        [refreshView_ endRefreshing];
+        [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone:YES];
     }];
+}
+
+-(void)reload{
+    [tableView_ reloadData];
+    [refreshView_ endRefreshing];
 }
 
 #pragma mark - UITableView delegate method
@@ -126,10 +104,5 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return announcements_?[announcements_ count]:0;
 }
-
--(void)reload{
-    [tableView_ reloadData];
-}
-
 
 @end

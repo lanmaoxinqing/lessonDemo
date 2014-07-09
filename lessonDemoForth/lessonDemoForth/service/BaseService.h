@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//为回调组装好数据提供block回调
+typedef void(^CompleteHandle)(id obj);
+
 /**
  服务器通信基类,使用NSURLSession与服务器异步交互，并通过block返回结果
  自定义Service需继承该类
@@ -25,7 +28,6 @@
 
 -(void)addParam:(id)paramValue byKey:(NSString *)key;
 -(void)requestWithCompletionHandler:(void (^)(NSString *responseStr, NSURLResponse *response, NSError *error))completionHandler;
-
 -(void)uploadWithCompletionHandler:(void (^)(NSData *responseData, NSURLResponse *response, NSError *error))completionHandler;
 
 -(void)test:(NSString *)filePath;
