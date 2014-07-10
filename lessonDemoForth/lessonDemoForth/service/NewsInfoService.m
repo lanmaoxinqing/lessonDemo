@@ -11,6 +11,13 @@
 @implementation NewsInfoService
 
 +(void)requestNewsInfosByType:(NSInteger)type atPage:(NSInteger)page complete:(CompleteHandle)handle{
+    //从本地数据库读取数据
+    NewsInfoDao *infoDao=[NewsInfoDao new];
+    NSArray *infos=[infoDao selectNewsInfosbyType:type AtPage:page];
+    //block回调结果
+    if(handle){
+        handle(infos);
+    }
     //网络有连接,从服务器取数据,并同步到本地数据库
     if([Sysconfig isNetworkReachable]){
         BaseService *base=[[BaseService alloc] init];
@@ -41,14 +48,6 @@
                 handle(infos);
             }
         }];
-    }else{
-        //从本地数据库读取数据
-        NewsInfoDao *infoDao=[NewsInfoDao new];
-        NSArray *infos=[infoDao selectNewsInfosbyType:type AtPage:page];
-        //block回调结果
-        if(handle){
-            handle(infos);
-        }
     }
 }
 

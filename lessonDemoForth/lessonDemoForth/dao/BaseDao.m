@@ -110,13 +110,17 @@
         NSMutableArray *placeholders=[NSMutableArray new];
         for(NSString *propertyName in [obj propertyNames]){
             id value=[obj valueForKey:propertyName];
+            //主键为空,跳过主键
+            if([propertyName isEqualToString:@"sid"] && (!value || [value intValue]==0)){
+                continue;
+            }
             if(value){
                 [params addObject:propertyName];
                 [values addObject:value];
                 [placeholders addObject:@"?"];
             }
         }
-        NSMutableString *sql=[NSMutableString stringWithFormat:@"INSERT INTO %@ (%@) values (%@)",NSStringFromClass([obj class]),[params componentsJoinedByString:@","],[placeholders componentsJoinedByString:@","]];
+        NSMutableString *sql=[NSMutableString stringWithFormat:@"REPLACE INTO %@ (%@) values (%@)",NSStringFromClass([obj class]),[params componentsJoinedByString:@","],[placeholders componentsJoinedByString:@","]];
         result=[self executeUpdate:sql withArgumentsInArray:values];
         if(!result){
             NSLog(@"%@\n%@",sql,[[self lastError] description]);
@@ -209,6 +213,16 @@
         result=NO;
     }
     return result;
+}
+
+-(id)selectClass:(Class)className byId:(long)sid{
+    NSString *sql=[NSString stringWithFormat:@"select * from %@ where sid=?",NSStringFromClass(className)];
+    FMResultSet *result=[self executeQuery:sql,@(sid)];
+    NSArray *results=[self generateObjects:className byResult:result];
+    if(results && [results count]>0){
+        return results[0];
+    }
+    return nil;
 }
 
 -(NSArray *)generateObjects:(Class)className byResult:(FMResultSet *)result{

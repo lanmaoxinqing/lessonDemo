@@ -8,6 +8,8 @@
 
 #import "NewsDetailViewController.h"
 #import "SuggestViewController.h"
+#import "FavorDao.h"
+#import "Favor.h"
 
 @interface NewsDetailViewController ()
 
@@ -28,9 +30,10 @@
 {
     [super viewDidLoad];
     //添加投诉按钮
-    UIBarButtonItem *item=[[UIBarButtonItem alloc] initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(didSuggestBtnClick:)];
+    UIBarButtonItem *suggestItem=[[UIBarButtonItem alloc] initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(didSuggestBtnClick:)];
+    UIBarButtonItem *favorItem=[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(didFavorBtnClick:)];
     
-    [self.navigationItem setRightBarButtonItem:item];
+    [self.navigationItem setRightBarButtonItems:@[favorItem,suggestItem]];
     //设置标题
     self.title=_newsInfo.title;
     //显示导航条(用于返回前一页)
@@ -73,6 +76,23 @@
 -(void)didSuggestBtnClick:(id)sender{
     SuggestViewController *suggestVC=[[SuggestViewController alloc] initWithNibName:@"SuggestViewController" bundle:nil];
     [self.navigationController pushViewController:suggestVC animated:YES];
+}
+
+-(void)didFavorBtnClick:(id)sender{
+    BaseDao *baseDao=[BaseDao sharedDao];
+    FavorDao *favorDao=[FavorDao new];
+    if([favorDao isFavorExistsById:_newsInfo.sid type:_newsInfo.type]){
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"收藏已存在" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+        Favor *favor=[Favor new];
+        favor.objId=_newsInfo.sid;
+        favor.type=_newsInfo.type;
+        favor.title=_newsInfo.title;
+        [baseDao insert:favor];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"收藏成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 

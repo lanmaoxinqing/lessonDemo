@@ -9,7 +9,7 @@
 #import "BottomTabViewController.h"
 #import "ImageCollectionViewController.h"
 #import "ImageListViewController.h"
-
+#import "FavorViewController.h"
 
 @interface BottomTabViewController ()
 
@@ -52,8 +52,10 @@
     ImageCollectionViewController *imageCollectionVC=[[ImageCollectionViewController alloc] initWithNibName:@"ImageCollectionViewController" bundle:nil];
     UINavigationController *imageCollectionNav=[[UINavigationController alloc] initWithRootViewController:imageCollectionVC];
     ImageListViewController *imageListVC=[[ImageListViewController alloc] initWithNibName:@"ImageListViewController" bundle:nil];
+    FavorViewController *favorVC=[[FavorViewController alloc] initWithNibName:@"FavorViewController" bundle:nil];
+    UINavigationController *favorNav=[[UINavigationController alloc] initWithRootViewController:favorVC];
     UINavigationController *imageListNav=[[UINavigationController alloc] initWithRootViewController:imageListVC];
-    self.viewControllers=@[topNav,imageCollectionNav,imageListNav];
+    self.viewControllers=@[topNav,imageCollectionNav,imageListNav,favorNav];
     // Do any additional setup after loading the view.
 }
 

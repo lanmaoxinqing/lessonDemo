@@ -17,5 +17,6 @@
     #import "JSONKit.h"
     #import "MBProgressHUD.h"
     #import "Sysconfig.h"
+    #import "BaseDao.h"
 
 #endif

@@ -9,12 +9,15 @@
 #import "NSObject+Property.h"
 #import <objc/runtime.h>
 
-static NSMutableArray *propertyNames;
-static NSMutableArray *attributes;
+NSMutableDictionary *propertyNameDic;
+NSMutableDictionary *attributeDic;
+NSMutableArray *propertyNames;
+NSMutableArray *attributes;
 
 @implementation NSObject (Property)
 
 -(NSArray *)propertyNames{
+    propertyNames=[propertyNameDic objectForKey:NSStringFromClass([self class])];
     if(!propertyNames){
         [[self class] getProperties];
     }
@@ -22,6 +25,7 @@ static NSMutableArray *attributes;
 }
 
 -(NSArray *)attributes{
+    attributes=[attributeDic objectForKey:NSStringFromClass([self class])];
     if(!attributes){
         [[self class] getProperties];
     }
@@ -29,6 +33,7 @@ static NSMutableArray *attributes;
 }
 
 +(NSArray *)propertyNames{
+    propertyNames=[propertyNameDic objectForKey:NSStringFromClass([self class])];
     if(!propertyNames){
         [self getProperties];
     }
@@ -36,21 +41,22 @@ static NSMutableArray *attributes;
 }
 
 +(NSArray *)attributes{
+    attributes=[attributeDic objectForKey:NSStringFromClass([self class])];
     if(!attributes){
         [self getProperties];
     }
     return attributes;
 }
 
-+(void)getProperties{
-    if(!propertyNames){
-        propertyNames=[NSMutableArray new];
+-(void)getProperties{
+    if(!propertyNameDic){
+        propertyNameDic=[NSMutableDictionary new];
     }
-    if(!attributes){
-        attributes=[NSMutableArray new];
+    if(!attributeDic){
+        attributeDic=[NSMutableDictionary new];
     }
-    [propertyNames removeAllObjects];
-    [attributes removeAllObjects];
+    propertyNames=[NSMutableArray new];
+    attributes=[NSMutableArray new];
     unsigned int outCount=0;
     objc_property_t * const properties=class_copyPropertyList([self class], &outCount);
     if(outCount>0){
@@ -62,8 +68,9 @@ static NSMutableArray *attributes;
             [propertyNames addObject:propertyName];
             [attributes addObject:attribute];
         }
+        [propertyNameDic setObject:propertyNames forKey:NSStringFromClass([self class])];
+        [attributeDic setObject:attributes forKey:NSStringFromClass([self class])];
     }
-    
 }
 
 @end

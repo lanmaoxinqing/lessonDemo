@@ -24,6 +24,8 @@
 -(BOOL)insertOrUpdate:(NSObject *)obj;
 -(BOOL)batchInsertOrUpdate:(NSArray *)objects;
 
+-(id)selectClass:(Class)className byId:(long)sid;
+
 -(NSArray *)generateObjects:(Class)className byResult:(FMResultSet *)result;
 
 @end

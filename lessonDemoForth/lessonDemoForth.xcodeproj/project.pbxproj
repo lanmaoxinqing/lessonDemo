@@ -10,6 +10,10 @@
 		334A7599196D8A8E00978A59 /* NewsInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 334A7598196D8A8E00978A59 /* NewsInfoService.m */; };
 		337D142B196AC84300A90240 /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142A196AC84300A90240 /* NSObject+Property.m */; };
 		337D142E196AEEF300A90240 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142D196AEEF300A90240 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		33848B1E196ED4E500C3BA94 /* FavorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B1C196ED4E500C3BA94 /* FavorViewController.m */; };
+		33848B1F196ED4E500C3BA94 /* FavorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33848B1D196ED4E500C3BA94 /* FavorViewController.xib */; };
+		33848B22196ED6F300C3BA94 /* Favor.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B21196ED6F300C3BA94 /* Favor.m */; };
+		33848B25196ED80B00C3BA94 /* FavorDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B24196ED80B00C3BA94 /* FavorDao.m */; };
 		FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */; };
 		FA98579D19667E6200C8ABF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579C19667E6200C8ABF3 /* Foundation.framework */; };
 		FA98579F19667E6200C8ABF3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579E19667E6200C8ABF3 /* CoreGraphics.framework */; };
@@ -98,7 +102,6 @@
 		FA98599619667EDB00C8ABF3 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98590A19667EDB00C8ABF3 /* UIImage+WebP.m */; };
 		FA98599719667EDB00C8ABF3 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98590C19667EDB00C8ABF3 /* UIImageView+WebCache.m */; };
 		FA98599819667EDB00C8ABF3 /* TableReloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98590E19667EDB00C8ABF3 /* TableReloadView.m */; };
-		FA98599919667EDB00C8ABF3 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98591019667EDB00C8ABF3 /* UIImageView+WebCache.m */; };
 		FA9859A61966805000C8ABF3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98599C1966805000C8ABF3 /* FMDatabase.m */; };
 		FA9859A71966805000C8ABF3 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98599E1966805000C8ABF3 /* FMDatabaseAdditions.m */; };
 		FA9859A81966805000C8ABF3 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9859A01966805000C8ABF3 /* FMDatabasePool.m */; };
@@ -127,6 +130,13 @@
 		337D142A196AC84300A90240 /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
 		337D142C196AEEF300A90240 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		337D142D196AEEF300A90240 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		33848B1B196ED4E500C3BA94 /* FavorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorViewController.h; sourceTree = "<group>"; };
+		33848B1C196ED4E500C3BA94 /* FavorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorViewController.m; sourceTree = "<group>"; };
+		33848B1D196ED4E500C3BA94 /* FavorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavorViewController.xib; sourceTree = "<group>"; };
+		33848B20196ED6F300C3BA94 /* Favor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favor.h; sourceTree = "<group>"; };
+		33848B21196ED6F300C3BA94 /* Favor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favor.m; sourceTree = "<group>"; };
+		33848B23196ED80B00C3BA94 /* FavorDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorDao.h; sourceTree = "<group>"; };
+		33848B24196ED80B00C3BA94 /* FavorDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorDao.m; sourceTree = "<group>"; };
 		FA8E96CE196A3F82002E9DE7 /* NewsInfoDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoDao.h; sourceTree = "<group>"; };
 		FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoDao.m; sourceTree = "<group>"; };
 		FA98579919667E6200C8ABF3 /* lessonDemoForth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lessonDemoForth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,8 +279,6 @@
 		FA98590C19667EDB00C8ABF3 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		FA98590D19667EDB00C8ABF3 /* TableReloadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableReloadView.h; sourceTree = "<group>"; };
 		FA98590E19667EDB00C8ABF3 /* TableReloadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableReloadView.m; sourceTree = "<group>"; };
-		FA98590F19667EDB00C8ABF3 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		FA98591019667EDB00C8ABF3 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		FA98599B1966805000C8ABF3 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FA98599C1966805000C8ABF3 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FA98599D1966805000C8ABF3 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -316,6 +324,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33848B1A196ED4D000C3BA94 /* favor */ = {
+			isa = PBXGroup;
+			children = (
+				33848B1B196ED4E500C3BA94 /* FavorViewController.h */,
+				33848B1C196ED4E500C3BA94 /* FavorViewController.m */,
+				33848B1D196ED4E500C3BA94 /* FavorViewController.xib */,
+			);
+			path = favor;
+			sourceTree = "<group>";
+		};
 		FA98579019667E6200C8ABF3 = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +416,7 @@
 		FA9857CB19667EDB00C8ABF3 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				33848B1A196ED4D000C3BA94 /* favor */,
 				FA9857CC19667EDB00C8ABF3 /* image */,
 				FA9857D319667EDB00C8ABF3 /* index */,
 				FA9857DB19667EDB00C8ABF3 /* init */,
@@ -476,6 +495,8 @@
 				FA9859F81966A46F00C8ABF3 /* TestInfo.m */,
 				337D1429196AC84300A90240 /* NSObject+Property.h */,
 				337D142A196AC84300A90240 /* NSObject+Property.m */,
+				33848B20196ED6F300C3BA94 /* Favor.h */,
+				33848B21196ED6F300C3BA94 /* Favor.m */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -562,8 +583,6 @@
 				FA9858ED19667EDB00C8ABF3 /* SDWebImage */,
 				FA98590D19667EDB00C8ABF3 /* TableReloadView.h */,
 				FA98590E19667EDB00C8ABF3 /* TableReloadView.m */,
-				FA98590F19667EDB00C8ABF3 /* UIImageView+WebCache.h */,
-				FA98591019667EDB00C8ABF3 /* UIImageView+WebCache.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -677,6 +696,8 @@
 				FA9859B1196680D500C8ABF3 /* BaseDao.m */,
 				FA8E96CE196A3F82002E9DE7 /* NewsInfoDao.h */,
 				FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */,
+				33848B23196ED80B00C3BA94 /* FavorDao.h */,
+				33848B24196ED80B00C3BA94 /* FavorDao.m */,
 			);
 			path = dao;
 			sourceTree = "<group>";
@@ -774,6 +795,7 @@
 				FA98591E19667EDB00C8ABF3 /* AnnouncementListViewController.xib in Resources */,
 				FA98592E19667EDB00C8ABF3 /* add.png in Resources */,
 				FA98593019667EDB00C8ABF3 /* btn_news.png in Resources */,
+				33848B1F196ED4E500C3BA94 /* FavorViewController.xib in Resources */,
 				FA98592719667EDB00C8ABF3 /* CHANGELOG.md in Resources */,
 				FA98592B19667EDB00C8ABF3 /* 1.png in Resources */,
 				FA98593A19667EDB00C8ABF3 /* ImageListHeaderView.xib in Resources */,
@@ -825,6 +847,7 @@
 				FA98591B19667EDB00C8ABF3 /* WelcomeViewController.m in Sources */,
 				FA98598619667EDB00C8ABF3 /* MJRefreshHeaderView.m in Sources */,
 				FA9859AA1966805000C8ABF3 /* FMResultSet.m in Sources */,
+				33848B22196ED6F300C3BA94 /* Favor.m in Sources */,
 				FA98591519667EDB00C8ABF3 /* BaseTabbarController.m in Sources */,
 				FA98593919667EDB00C8ABF3 /* ImageListHeaderView.m in Sources */,
 				FA9859A61966805000C8ABF3 /* FMDatabase.m in Sources */,
@@ -837,6 +860,7 @@
 				FA98598919667EDB00C8ABF3 /* MKAnnotationView+WebCache.m in Sources */,
 				FA98591319667EDB00C8ABF3 /* ImageListViewController.m in Sources */,
 				334A7599196D8A8E00978A59 /* NewsInfoService.m in Sources */,
+				33848B1E196ED4E500C3BA94 /* FavorViewController.m in Sources */,
 				FA98598F19667EDB00C8ABF3 /* SDWebImageDownloaderOperation.m in Sources */,
 				FA98598A19667EDB00C8ABF3 /* NSData+ImageContentType.m in Sources */,
 				337D142E196AEEF300A90240 /* Reachability.m in Sources */,
@@ -850,13 +874,13 @@
 				FA98598119667EDB00C8ABF3 /* MJPhotoToolbar.m in Sources */,
 				FA98591919667EDB00C8ABF3 /* GuideViewController.m in Sources */,
 				FA9857A919667E6200C8ABF3 /* main.m in Sources */,
-				FA98599919667EDB00C8ABF3 /* UIImageView+WebCache.m in Sources */,
 				FA98599219667EDB00C8ABF3 /* SDWebImagePrefetcher.m in Sources */,
 				FA98598219667EDB00C8ABF3 /* MJPhotoView.m in Sources */,
 				FA98592319667EDB00C8ABF3 /* SuggestViewController.m in Sources */,
 				FA98599019667EDB00C8ABF3 /* SDWebImageManager+MJ.m in Sources */,
 				FA98593D19667EDB00C8ABF3 /* MBProgressHUD+Add.m in Sources */,
 				FA98591D19667EDB00C8ABF3 /* AnnouncementListViewController.m in Sources */,
+				33848B25196ED80B00C3BA94 /* FavorDao.m in Sources */,
 				FA9859A71966805000C8ABF3 /* FMDatabaseAdditions.m in Sources */,
 				FA98593619667EDB00C8ABF3 /* Sysconfig.m in Sources */,
 				FA9859A81966805000C8ABF3 /* FMDatabasePool.m in Sources */,

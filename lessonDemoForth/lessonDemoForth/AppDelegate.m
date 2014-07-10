@@ -10,6 +10,7 @@
 #import "WelcomeViewController.h"
 #import "BaseDao.h"
 #import "NewsInfo.h"
+#import "Favor.h"
 
 @implementation AppDelegate
 
@@ -22,6 +23,7 @@
     WelcomeViewController *welcomeVC=[[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:nil];
     self.window.rootViewController=welcomeVC;
     [[BaseDao sharedDao] createTableByClass:[NewsInfo class]];
+    [[BaseDao sharedDao] createTableByClass:[Favor class]];
     return YES;
 }
 
