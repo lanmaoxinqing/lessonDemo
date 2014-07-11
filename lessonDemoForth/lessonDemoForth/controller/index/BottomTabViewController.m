@@ -10,6 +10,7 @@
 #import "ImageCollectionViewController.h"
 #import "ImageListViewController.h"
 #import "FavorViewController.h"
+#import "DownloadViewController.h"
 
 @interface BottomTabViewController ()
 
@@ -52,10 +53,12 @@
     ImageCollectionViewController *imageCollectionVC=[[ImageCollectionViewController alloc] initWithNibName:@"ImageCollectionViewController" bundle:nil];
     UINavigationController *imageCollectionNav=[[UINavigationController alloc] initWithRootViewController:imageCollectionVC];
     ImageListViewController *imageListVC=[[ImageListViewController alloc] initWithNibName:@"ImageListViewController" bundle:nil];
+    UINavigationController *imageListNav=[[UINavigationController alloc] initWithRootViewController:imageListVC];
     FavorViewController *favorVC=[[FavorViewController alloc] initWithNibName:@"FavorViewController" bundle:nil];
     UINavigationController *favorNav=[[UINavigationController alloc] initWithRootViewController:favorVC];
-    UINavigationController *imageListNav=[[UINavigationController alloc] initWithRootViewController:imageListVC];
-    self.viewControllers=@[topNav,imageCollectionNav,imageListNav,favorNav];
+    DownloadViewController *downloadVC=[[DownloadViewController alloc] initWithNibName:@"DownloadViewController" bundle:nil];
+    UINavigationController *downloadNav=[[UINavigationController alloc] initWithRootViewController:downloadVC];
+    self.viewControllers=@[topNav,favorNav,imageListNav,downloadNav];
     // Do any additional setup after loading the view.
 }
 

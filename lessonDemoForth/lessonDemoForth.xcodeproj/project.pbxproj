@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33337ADA197014CD009FF290 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33337AD8197014CD009FF290 /* DownloadViewController.m */; };
+		33337ADB197014CD009FF290 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33337AD9197014CD009FF290 /* DownloadViewController.xib */; };
+		33337ADF197018A6009FF290 /* DownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33337ADD197018A6009FF290 /* DownloadCell.m */; };
+		33337AE0197018A6009FF290 /* DownloadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33337ADE197018A6009FF290 /* DownloadCell.xib */; };
+		33337AE619702BCD009FF290 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33337AE519702BCD009FF290 /* DownloadManager.m */; };
 		334A7599196D8A8E00978A59 /* NewsInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 334A7598196D8A8E00978A59 /* NewsInfoService.m */; };
 		337D142B196AC84300A90240 /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142A196AC84300A90240 /* NSObject+Property.m */; };
 		337D142E196AEEF300A90240 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142D196AEEF300A90240 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -124,6 +129,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33337AD7197014CD009FF290 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		33337AD8197014CD009FF290 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		33337AD9197014CD009FF290 /* DownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
+		33337ADC197018A6009FF290 /* DownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadCell.h; sourceTree = "<group>"; };
+		33337ADD197018A6009FF290 /* DownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadCell.m; sourceTree = "<group>"; };
+		33337ADE197018A6009FF290 /* DownloadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadCell.xib; sourceTree = "<group>"; };
+		33337AE419702BCD009FF290 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		33337AE519702BCD009FF290 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
 		334A7597196D8A8E00978A59 /* NewsInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoService.h; sourceTree = "<group>"; };
 		334A7598196D8A8E00978A59 /* NewsInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoService.m; sourceTree = "<group>"; };
 		337D1429196AC84300A90240 /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
@@ -324,6 +337,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33337AD6197014BD009FF290 /* download */ = {
+			isa = PBXGroup;
+			children = (
+				33337AD7197014CD009FF290 /* DownloadViewController.h */,
+				33337AD8197014CD009FF290 /* DownloadViewController.m */,
+				33337AD9197014CD009FF290 /* DownloadViewController.xib */,
+			);
+			path = download;
+			sourceTree = "<group>";
+		};
 		33848B1A196ED4D000C3BA94 /* favor */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +439,7 @@
 		FA9857CB19667EDB00C8ABF3 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				33337AD6197014BD009FF290 /* download */,
 				33848B1A196ED4D000C3BA94 /* favor */,
 				FA9857CC19667EDB00C8ABF3 /* image */,
 				FA9857D319667EDB00C8ABF3 /* index */,
@@ -558,6 +582,8 @@
 				FA98580B19667EDB00C8ABF3 /* Sysconfig.m */,
 				334A7597196D8A8E00978A59 /* NewsInfoService.h */,
 				334A7598196D8A8E00978A59 /* NewsInfoService.m */,
+				33337AE419702BCD009FF290 /* DownloadManager.h */,
+				33337AE519702BCD009FF290 /* DownloadManager.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -565,6 +591,9 @@
 		FA98580C19667EDB00C8ABF3 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				33337ADC197018A6009FF290 /* DownloadCell.h */,
+				33337ADD197018A6009FF290 /* DownloadCell.m */,
+				33337ADE197018A6009FF290 /* DownloadCell.xib */,
 				FA98580D19667EDB00C8ABF3 /* ImageCollectionViewCell.h */,
 				FA98580E19667EDB00C8ABF3 /* ImageCollectionViewCell.m */,
 				FA98580F19667EDB00C8ABF3 /* ImageCollectionViewCell.xib */,
@@ -779,6 +808,7 @@
 			files = (
 				FA98593C19667EDB00C8ABF3 /* ImageTableViewCell.xib in Resources */,
 				FA9857A719667E6200C8ABF3 /* InfoPlist.strings in Resources */,
+				33337ADB197014CD009FF290 /* DownloadViewController.xib in Resources */,
 				FA98591C19667EDB00C8ABF3 /* WelcomeViewController.xib in Resources */,
 				FA98591A19667EDB00C8ABF3 /* GuideViewController.xib in Resources */,
 				FA98598819667EDB00C8ABF3 /* NewsTableViewCell.xib in Resources */,
@@ -796,6 +826,7 @@
 				FA98592E19667EDB00C8ABF3 /* add.png in Resources */,
 				FA98593019667EDB00C8ABF3 /* btn_news.png in Resources */,
 				33848B1F196ED4E500C3BA94 /* FavorViewController.xib in Resources */,
+				33337AE0197018A6009FF290 /* DownloadCell.xib in Resources */,
 				FA98592719667EDB00C8ABF3 /* CHANGELOG.md in Resources */,
 				FA98592B19667EDB00C8ABF3 /* 1.png in Resources */,
 				FA98593A19667EDB00C8ABF3 /* ImageListHeaderView.xib in Resources */,
@@ -860,6 +891,7 @@
 				FA98598919667EDB00C8ABF3 /* MKAnnotationView+WebCache.m in Sources */,
 				FA98591319667EDB00C8ABF3 /* ImageListViewController.m in Sources */,
 				334A7599196D8A8E00978A59 /* NewsInfoService.m in Sources */,
+				33337ADF197018A6009FF290 /* DownloadCell.m in Sources */,
 				33848B1E196ED4E500C3BA94 /* FavorViewController.m in Sources */,
 				FA98598F19667EDB00C8ABF3 /* SDWebImageDownloaderOperation.m in Sources */,
 				FA98598A19667EDB00C8ABF3 /* NSData+ImageContentType.m in Sources */,
@@ -868,6 +900,8 @@
 				FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */,
 				FA98597F19667EDB00C8ABF3 /* MJPhotoLoadingView.m in Sources */,
 				FA9859B2196680D500C8ABF3 /* BaseDao.m in Sources */,
+				33337ADA197014CD009FF290 /* DownloadViewController.m in Sources */,
+				33337AE619702BCD009FF290 /* DownloadManager.m in Sources */,
 				FA98593F19667EDB00C8ABF3 /* MJPhoto.m in Sources */,
 				FA98591719667EDB00C8ABF3 /* TopNavViewController.m in Sources */,
 				FA98592619667EDB00C8ABF3 /* NewsInfo.m in Sources */,
