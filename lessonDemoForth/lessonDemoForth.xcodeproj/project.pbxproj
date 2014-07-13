@@ -14,11 +14,12 @@
 		33337AE619702BCD009FF290 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33337AE519702BCD009FF290 /* DownloadManager.m */; };
 		334A7599196D8A8E00978A59 /* NewsInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 334A7598196D8A8E00978A59 /* NewsInfoService.m */; };
 		337D142B196AC84300A90240 /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142A196AC84300A90240 /* NSObject+Property.m */; };
-		337D142E196AEEF300A90240 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D142D196AEEF300A90240 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		33848B1E196ED4E500C3BA94 /* FavorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B1C196ED4E500C3BA94 /* FavorViewController.m */; };
 		33848B1F196ED4E500C3BA94 /* FavorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33848B1D196ED4E500C3BA94 /* FavorViewController.xib */; };
 		33848B22196ED6F300C3BA94 /* Favor.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B21196ED6F300C3BA94 /* Favor.m */; };
 		33848B25196ED80B00C3BA94 /* FavorDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 33848B24196ED80B00C3BA94 /* FavorDao.m */; };
+		FA16B961197227310093FD11 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16B960197227310093FD11 /* QuickLook.framework */; };
+		FA1DA73919722F4400415A36 /* IOS.doc in Resources */ = {isa = PBXBuildFile; fileRef = FA16B95D197220500093FD11 /* IOS.doc */; };
 		FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */; };
 		FA98579D19667E6200C8ABF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579C19667E6200C8ABF3 /* Foundation.framework */; };
 		FA98579F19667E6200C8ABF3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98579E19667E6200C8ABF3 /* CoreGraphics.framework */; };
@@ -116,6 +117,9 @@
 		FA9859AE1966806C00C8ABF3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9859AC1966806C00C8ABF3 /* libsqlite3.0.dylib */; };
 		FA9859B2196680D500C8ABF3 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9859B1196680D500C8ABF3 /* BaseDao.m */; };
 		FA9859F91966A46F00C8ABF3 /* TestInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9859F81966A46F00C8ABF3 /* TestInfo.m */; };
+		FA9C21181970F90F00B341EA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9C21171970F90F00B341EA /* SystemConfiguration.framework */; };
+		FA9C211B1970F9E000B341EA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C211A1970F9E000B341EA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FA9C211D1971E73400B341EA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9C211C1971E73400B341EA /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +145,6 @@
 		334A7598196D8A8E00978A59 /* NewsInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoService.m; sourceTree = "<group>"; };
 		337D1429196AC84300A90240 /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
 		337D142A196AC84300A90240 /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
-		337D142C196AEEF300A90240 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		337D142D196AEEF300A90240 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		33848B1B196ED4E500C3BA94 /* FavorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorViewController.h; sourceTree = "<group>"; };
 		33848B1C196ED4E500C3BA94 /* FavorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorViewController.m; sourceTree = "<group>"; };
 		33848B1D196ED4E500C3BA94 /* FavorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavorViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +152,8 @@
 		33848B21196ED6F300C3BA94 /* Favor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favor.m; sourceTree = "<group>"; };
 		33848B23196ED80B00C3BA94 /* FavorDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorDao.h; sourceTree = "<group>"; };
 		33848B24196ED80B00C3BA94 /* FavorDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorDao.m; sourceTree = "<group>"; };
+		FA16B95D197220500093FD11 /* IOS.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = IOS.doc; sourceTree = "<group>"; };
+		FA16B960197227310093FD11 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		FA8E96CE196A3F82002E9DE7 /* NewsInfoDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoDao.h; sourceTree = "<group>"; };
 		FA8E96CF196A3F82002E9DE7 /* NewsInfoDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoDao.m; sourceTree = "<group>"; };
 		FA98579919667E6200C8ABF3 /* lessonDemoForth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lessonDemoForth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,6 +313,10 @@
 		FA9859B1196680D500C8ABF3 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
 		FA9859F71966A46F00C8ABF3 /* TestInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfo.h; sourceTree = "<group>"; };
 		FA9859F81966A46F00C8ABF3 /* TestInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfo.m; sourceTree = "<group>"; };
+		FA9C21171970F90F00B341EA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FA9C21191970F9E000B341EA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FA9C211A1970F9E000B341EA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FA9C211C1971E73400B341EA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +324,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA16B961197227310093FD11 /* QuickLook.framework in Frameworks */,
+				FA9C211D1971E73400B341EA /* MediaPlayer.framework in Frameworks */,
+				FA9C21181970F90F00B341EA /* SystemConfiguration.framework in Frameworks */,
 				FA9859AD1966806C00C8ABF3 /* QuartzCore.framework in Frameworks */,
 				FA9859AE1966806C00C8ABF3 /* libsqlite3.0.dylib in Frameworks */,
 				FA98579F19667E6200C8ABF3 /* CoreGraphics.framework in Frameworks */,
@@ -379,6 +390,9 @@
 		FA98579B19667E6200C8ABF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA16B960197227310093FD11 /* QuickLook.framework */,
+				FA9C211C1971E73400B341EA /* MediaPlayer.framework */,
+				FA9C21171970F90F00B341EA /* SystemConfiguration.framework */,
 				FA9859AB1966806C00C8ABF3 /* QuartzCore.framework */,
 				FA9859AC1966806C00C8ABF3 /* libsqlite3.0.dylib */,
 				FA98579C19667E6200C8ABF3 /* Foundation.framework */,
@@ -556,6 +570,7 @@
 		FA9857FB19667EDB00C8ABF3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA16B95D197220500093FD11 /* IOS.doc */,
 				FA9857FC19667EDB00C8ABF3 /* 0.png */,
 				FA9857FD19667EDB00C8ABF3 /* 1.png */,
 				FA9857FE19667EDB00C8ABF3 /* 2.png */,
@@ -574,8 +589,8 @@
 		FA98580719667EDB00C8ABF3 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				337D142C196AEEF300A90240 /* Reachability.h */,
-				337D142D196AEEF300A90240 /* Reachability.m */,
+				FA9C21191970F9E000B341EA /* Reachability.h */,
+				FA9C211A1970F9E000B341EA /* Reachability.m */,
 				FA98580819667EDB00C8ABF3 /* BaseService.h */,
 				FA98580919667EDB00C8ABF3 /* BaseService.m */,
 				FA98580A19667EDB00C8ABF3 /* Sysconfig.h */,
@@ -806,6 +821,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1DA73919722F4400415A36 /* IOS.doc in Resources */,
 				FA98593C19667EDB00C8ABF3 /* ImageTableViewCell.xib in Resources */,
 				FA9857A719667E6200C8ABF3 /* InfoPlist.strings in Resources */,
 				33337ADB197014CD009FF290 /* DownloadViewController.xib in Resources */,
@@ -895,7 +911,6 @@
 				33848B1E196ED4E500C3BA94 /* FavorViewController.m in Sources */,
 				FA98598F19667EDB00C8ABF3 /* SDWebImageDownloaderOperation.m in Sources */,
 				FA98598A19667EDB00C8ABF3 /* NSData+ImageContentType.m in Sources */,
-				337D142E196AEEF300A90240 /* Reachability.m in Sources */,
 				FA98598E19667EDB00C8ABF3 /* SDWebImageDownloader.m in Sources */,
 				FA8E96D0196A3F82002E9DE7 /* NewsInfoDao.m in Sources */,
 				FA98597F19667EDB00C8ABF3 /* MJPhotoLoadingView.m in Sources */,
@@ -916,6 +931,7 @@
 				FA98591D19667EDB00C8ABF3 /* AnnouncementListViewController.m in Sources */,
 				33848B25196ED80B00C3BA94 /* FavorDao.m in Sources */,
 				FA9859A71966805000C8ABF3 /* FMDatabaseAdditions.m in Sources */,
+				FA9C211B1970F9E000B341EA /* Reachability.m in Sources */,
 				FA98593619667EDB00C8ABF3 /* Sysconfig.m in Sources */,
 				FA9859A81966805000C8ABF3 /* FMDatabasePool.m in Sources */,
 				FA98599519667EDB00C8ABF3 /* UIImage+MultiFormat.m in Sources */,

@@ -14,13 +14,15 @@
     IBOutlet UIProgressView *progress;
     IBOutlet UILabel *titleLabel;
     IBOutlet UIButton *button;
-    NSURLSessionDownloadTask *task_;
 }
 
+@property(nonatomic,strong) NSURLSessionDownloadTask *task;
 @property(nonatomic,assign) id<DownloadCellDelegate> delegate;
 @property(nonatomic,assign) NSURLSessionTaskState state;
 @property(nonatomic,copy) NSString *title;
 @property(nonatomic,copy) NSString *downloadUrl;
+@property(nonatomic,assign) float progressValue;
+
 -(void)downloadStart;
 -(void)downloadContinue;
 -(void)downloadPause;

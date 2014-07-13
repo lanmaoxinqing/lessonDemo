@@ -11,7 +11,7 @@
 @interface DownloadManager ()
 
 @property(nonatomic,strong) NSMutableDictionary *taskDic;
-@property(nonatomic,strong) NSURLSession *currentSession;
+@property(nonatomic,strong) NSURLSession *session;
 
 @end
 
@@ -24,9 +24,19 @@
         manager=[[DownloadManager alloc] init];
         manager.taskDic=[NSMutableDictionary new];
         NSURLSessionConfiguration *defaultConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        manager.currentSession = [NSURLSession sessionWithConfiguration:defaultConfig delegate:manager delegateQueue:nil];
+        manager.session = [NSURLSession sessionWithConfiguration:defaultConfig delegate:manager delegateQueue:nil];
     });
     return manager;
+}
+
+-(id)init{
+    self=[super init];
+    if(self){
+        self.taskDic=[NSMutableDictionary new];
+        NSURLSessionConfiguration *defaultConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        self.session = [NSURLSession sessionWithConfiguration:defaultConfig delegate:self delegateQueue:nil];
+    }
+    return self;
 }
 
 -(void)resume:(NSString *)urlStr{
@@ -36,10 +46,11 @@
 
 -(void)pause:(NSString *)urlStr{
     NSURLSessionDownloadTask *task=[self taskWithURL:urlStr];
+    [task suspend];
     [task cancelByProducingResumeData:^(NSData *resumeData) {
-//        [task suspend];
         NSString *tempPath=[[Sysconfig filePathByName:urlStr] stringByAppendingString:@".tmp"];
         [resumeData writeToFile:tempPath atomically:YES];
+        [self.taskDic removeObjectForKey:urlStr];
     }];
 }
 
@@ -48,20 +59,21 @@
     [task cancelByProducingResumeData:^(NSData *resumeData) {
         NSString *tempPath=[[Sysconfig filePathByName:urlStr] stringByAppendingString:@".tmp"];
         [resumeData writeToFile:tempPath atomically:YES];
+        [self.taskDic removeObjectForKey:urlStr];
     }];
 }
 
 -(NSURLSessionDownloadTask *)taskWithURL:(NSString *)urlStr{
     NSURLSessionDownloadTask *task=[_taskDic objectForKey:urlStr];
-    NSString *tempPath=[[Sysconfig filePathByName:urlStr] stringByAppendingString:@".tmp"];
-    if(!task || task.state==NSURLSessionTaskStateCompleted){
+    if(!task){
+        NSString *tempPath=[[Sysconfig filePathByName:urlStr] stringByAppendingString:@".tmp"];
         if([[NSFileManager defaultManager] fileExistsAtPath:tempPath]){
             NSData *data=[NSData dataWithContentsOfFile:tempPath];
-            task=[_currentSession downloadTaskWithResumeData:data];
+            task=[_session downloadTaskWithResumeData:data];
             [_taskDic setObject:task forKey:urlStr];
         }else{
             NSURL *url=[NSURL URLWithString:urlStr];
-            task=[_currentSession downloadTaskWithURL:url];
+            task=[_session downloadTaskWithURL:url];
             [_taskDic setObject:task forKey:urlStr];
         }
     }
@@ -70,8 +82,9 @@
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
     NSLog(@"%lli,%lli",totalBytesWritten,totalBytesExpectedToWrite);
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationProgress object:downloadTask];
-
+    if(_delegate && [_delegate respondsToSelector:@selector(URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:)]){
+        [_delegate URLSession:session downloadTask:downloadTask didWriteData:bytesWritten totalBytesWritten:totalBytesWritten totalBytesExpectedToWrite:totalBytesExpectedToWrite];
+    }
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
@@ -81,7 +94,13 @@
     if(error){
         NSLog(@"%@",[error description]);
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationComplete object:downloadTask];
+    if(_delegate && [_delegate respondsToSelector:@selector(URLSession:downloadTask:didFinishDownloadingToURL:)]){
+        [_delegate URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:location];
+    }
 }
+
+//-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes{
+//    
+//}
 
 @end

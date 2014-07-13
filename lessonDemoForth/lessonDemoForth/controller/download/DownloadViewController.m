@@ -28,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    resources_=@[@"http://122.227.237.39/youku/677571A4F9A4E84658E7E5385F/030008100050F99D78E71E05CF07DD89F6E8F6-0EBA-D115-B5C5-2153AF096313.mp4",@"http://180.96.38.44/youku/69782A76F243A816BBF6B83A68/030008100150F99D78E71E05CF07DD89F6E8F6-0EBA-D115-B5C5-2153AF096313.mp4",@"http://58.211.22.207/youku/697912BC7954183642DAF649F5/030008100250F99D78E71E05CF07DD89F6E8F6-0EBA-D115-B5C5-2153AF096313.mp4"];
+    DownloadManager *manager=[DownloadManager sharedManager];
+    manager.delegate=self;
+    resources_=@[@"http://58.216.26.101/youku/677537549C4438393FE6FD4283/030008010053AD23EB25CA06A9C1DB28766C54-FF0A-3FDB-DD19-0AA53FCDB6B4.mp4",@"http://222.73.61.134/youku/677366FCDF9428141BC33C61C1/030008070053B11D8DCCC2055DF53192864505-23EE-C761-8FFD-D110359DFD00.mp4",@"http://58.216.26.108/youku/6572D5D2FB34D841EC806F504A/030008070153B11D8DCCC2055DF53192864505-23EE-C761-8FFD-D110359DFD00.mp4",@"IOS.doc"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -44,12 +46,81 @@
     if(!cell){
         cell=[[NSBundle mainBundle] loadNibNamed:@"DownloadCell" owner:nil options:nil][0];
     }
+    cell.delegate=self;
     cell.downloadUrl=urlStr;
+    NSString *filePath=[Sysconfig filePathByName:urlStr];
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        cell.state=NSURLSessionTaskStateCompleted;
+    }
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return resources_.count;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *urlStr=resources_[indexPath.row];
+    NSString *filePath=[Sysconfig filePathByName:urlStr];
+    if([urlStr isEqualToString:@"IOS.doc"]){
+        QLPreviewController *previewVC=[[QLPreviewController alloc] init];
+        previewVC.dataSource = self;
+        [self presentViewController:previewVC animated:YES completion:nil];
+    }else if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        //播放本地视频
+        NSURL *movieURL = [NSURL fileURLWithPath:filePath];//file://
+        player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+        [self presentMoviePlayerViewControllerAnimated:player];
+        [player.moviePlayer play];
+    }else{
+        //播放在线视频
+        NSURL *movieURL = [NSURL URLWithString:urlStr];//http://
+        player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+        [self presentMoviePlayerViewControllerAnimated:player];
+        [player.moviePlayer play];
+
+    }
+}
+
+-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
+    NSString *urlStr=downloadTask.currentRequest.URL.absoluteString;
+    NSInteger index=[resources_ indexOfObject:urlStr];
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:index inSection:0];
+    DownloadCell *cell=(DownloadCell *)[tableview_ cellForRowAtIndexPath:indexPath];
+    cell.progressValue=totalBytesWritten/(float)totalBytesExpectedToWrite;
+}
+
+-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
+    NSString *urlStr=downloadTask.currentRequest.URL.absoluteString;
+    NSInteger index=[resources_ indexOfObject:urlStr];
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:index inSection:0];
+    DownloadCell *cell=(DownloadCell *)[tableview_ cellForRowAtIndexPath:indexPath];
+    cell.state=NSURLSessionTaskStateCompleted;
+}
+
+-(void)DownloadCellDidFinishButtonClicked:(DownloadCell *)cell{
+    NSIndexPath *indexPath=[tableview_ indexPathForCell:cell];
+    NSString *urlStr=resources_[indexPath.row];
+    NSString *filePath=[Sysconfig filePathByName:urlStr];
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        //播放视频
+        NSURL *movieURL = [NSURL fileURLWithPath:filePath];
+        player = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+        [self presentMoviePlayerViewControllerAnimated:player];
+        [player.moviePlayer play];
+    }
+}
+
+#pragma mark - QuickLook delegate
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)previewController
+{
+    return 1;
+}
+
+- (id)previewController:(QLPreviewController *)previewController previewItemAtIndex:(NSInteger)idx
+{
+    return [NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IOS.doc"]];
+}
+
 
 @end

@@ -101,23 +101,19 @@
 
 -(void)setDownloadUrl:(NSString *)downloadUrl{
     _downloadUrl=downloadUrl;
-    NSURLSessionTask *task=[[DownloadManager sharedManager] taskWithURL:downloadUrl];
+    NSURLSessionDownloadTask *task=[[DownloadManager sharedManager] taskWithURL:downloadUrl];
     self.state=task.state;
     self.title=task.description;
     progress.progress=task.countOfBytesReceived/(float)task.countOfBytesExpectedToReceive;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeProgress:) name:kNotificationProgress object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(complete:) name:kNotificationComplete object:nil];
 }
 
--(void)changeProgress:(NSNotification *)notify{
-    NSURLSessionDownloadTask *downloadTask=[notify object];
-    if(!task_ || task_.state!=NSURLSessionTaskStateRunning){
-        task_=[[DownloadManager sharedManager] taskWithURL:_downloadUrl];
-    }
-//    NSURLSessionTask *task=[[DownloadManager sharedManager] taskWithURL:_downloadUrl];
-    if([downloadTask isEqual:task_]){
-        progress.progress=task_.countOfBytesReceived/(float)task_.countOfBytesExpectedToReceive;
-    }
+-(void)setProgressValue:(float)progressValue{
+    _progressValue=progressValue;
+    [self performSelectorOnMainThread:@selector(changeProgress:) withObject:@(progressValue) waitUntilDone:YES];
+}
+
+-(void)changeProgress:(NSNumber *)value{
+    progress.progress=[value floatValue];
 }
 
 -(void)complete:(NSNotification *)notify{

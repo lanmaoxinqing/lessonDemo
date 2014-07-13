@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define kNotificationProgress @"kNotificationProgress"
-#define kNotificationComplete @"kNotificationComplete"
-
-
 @interface DownloadManager : NSObject<NSURLSessionDownloadDelegate>
+@property(nonatomic,assign) id<NSURLSessionDownloadDelegate> delegate;
 
 +(instancetype)sharedManager;
 

@@ -29,33 +29,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //添加投诉按钮
-    UIBarButtonItem *suggestItem=[[UIBarButtonItem alloc] initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(didSuggestBtnClick:)];
-    UIBarButtonItem *favorItem=[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(didFavorBtnClick:)];
+//    //添加投诉按钮
+//    UIBarButtonItem *suggestItem=[[UIBarButtonItem alloc] initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(didSuggestBtnClick:)];
+//    UIBarButtonItem *favorItem=[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(didFavorBtnClick:)];
+//    
+//    [self.navigationItem setRightBarButtonItems:@[favorItem,suggestItem]];
+//    //设置标题
+//    self.title=_newsInfo.title;
+//    //显示导航条(用于返回前一页)
+//    [self.navigationController setNavigationBarHidden:NO animated:NO];
+//    //根据ID加载新闻详情
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    BaseService *base=[[BaseService alloc] init];
+//    base.url=[NSString stringWithFormat:@"http://api.blbaidu.cn/API/New.ashx?id=%ld",_newsInfo.sid];
+//    [base requestWithCompletionHandler:^(NSString *responseStr, NSURLResponse *response, NSError *error) {
+//        NSDictionary *responseDic=[responseStr objectFromJSONString];
+//        NSString *description=[responseDic objectForKey:@"description"];
+////        NSString *text=[NSString stringWithFormat:@"javascript:test(%@)",description];
+////        [webview_ stringByEvaluatingJavaScriptFromString:text];
+////        NSURL *url=[NSURL fileURLWithPath:<#(NSString *)#>]
+////        NSURLRequest *request=[NSURLRequest requestWithURL:<#(NSURL *)#>]
+////        webview_ loadRequest:<#(NSURLRequest *)#>
+//        [webview_ loadHTMLString:description baseURL:nil];
+//    }];
     
-    [self.navigationItem setRightBarButtonItems:@[favorItem,suggestItem]];
-    //设置标题
-    self.title=_newsInfo.title;
-    //显示导航条(用于返回前一页)
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    //根据ID加载新闻详情
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    BaseService *base=[[BaseService alloc] init];
-    base.url=[NSString stringWithFormat:@"http://api.blbaidu.cn/API/New.ashx?id=%ld",_newsInfo.sid];
-    [base requestWithCompletionHandler:^(NSString *responseStr, NSURLResponse *response, NSError *error) {
-        NSDictionary *responseDic=[responseStr objectFromJSONString];
-        NSString *description=[responseDic objectForKey:@"description"];
-//        NSString *text=[NSString stringWithFormat:@"javascript:test(%@)",description];
-//        [webview_ stringByEvaluatingJavaScriptFromString:text];
-//        NSURL *url=[NSURL fileURLWithPath:<#(NSString *)#>]
-//        NSURLRequest *request=[NSURLRequest requestWithURL:<#(NSURL *)#>]
-//        webview_ loadRequest:<#(NSURLRequest *)#>
-        [webview_ loadHTMLString:description baseURL:nil];
-    }];
-    
-//    NSString *filePath=[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"test.html"];
-//    NSString *content=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    [webview_ loadHTMLString:content baseURL:nil];
+    NSString *filePath=[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/test.html"];
+    NSString *content=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [webview_ loadHTMLString:content baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
 }
 
 - (void)didReceiveMemoryWarning
