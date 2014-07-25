@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>42D0E380-847E-450A-BD8D-D99B2A4BE38B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>lessonDemoFifth</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>53342580-CCEB-43F8-B62E-927720726766</key>
+		<string>https://github.com/lanmaoxinqing/lessonDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>lessonDemoFifth/lessonDemoFifth.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>53342580-CCEB-43F8-B62E-927720726766</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lanmaoxinqing/lessonDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>53342580-CCEB-43F8-B62E-927720726766</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>53342580-CCEB-43F8-B62E-927720726766</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lessonDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
