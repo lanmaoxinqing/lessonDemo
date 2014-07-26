@@ -9,6 +9,8 @@
 #import "ListTableViewController.h"
 #import "ContactListTableViewController.h"
 #import "MapViewController.h"
+#import "ZBarSDK.h"
+#import "ChatViewController.h"
 
 #define kNameNotification   @"消息推送"
 #define kNameContact        @"通讯录"
@@ -138,7 +140,26 @@
         nav_.viewControllers=@[mapVC];
         mapVC.navigationItem.leftBarButtonItem=backItem_;
         [self presentViewController:nav_ animated:YES completion:nil];
+    }else if([datas_[indexPath.row] isEqualToString:kNameCode]){
+        ZBarReaderViewController *zbar=[[ZBarReaderViewController alloc] init];
+        zbar.readerDelegate=self;
+        [self presentViewController:zbar animated:YES completion:nil];
+    }else if([datas_[indexPath.row] isEqualToString:kNameChat]){
+        ChatViewController *chatVC=[[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+        [self.navigationController pushViewController:chatVC animated:YES];
     }
+}
+
+#pragma mark - ZBar delegate method
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    id<NSFastEnumeration> results =
+    [info objectForKey: ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    for(symbol in results)
+        break;
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"扫描结果" message:symbol.data delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

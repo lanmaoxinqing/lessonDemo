@@ -8,6 +8,8 @@
 
 #import "MapViewController.h"
 #import "FarmAnnotation.h"
+#import "LocationService.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface MapViewController ()
 
@@ -48,7 +50,12 @@
         MKAnnotationView *anView=[mapView dequeueReusableAnnotationViewWithIdentifier:@"MKAnnotationView"];
         if(!anView){
             anView=[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MKAnnotationView"];
+            anView.canShowCallout=YES;
             anView.image=[UIImage imageNamed:@"pin"];
+//            UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+//            label.backgroundColor=[UIColor greenColor];
+//            label.text=@"左侧详情";
+//            anView.leftCalloutAccessoryView=label;
         }
         anView.annotation=annotation;
         return anView;
@@ -56,7 +63,7 @@
     return nil;
 }
 
-#pragma mark - 
+#pragma mark -
 -(void)didLongPressMapView:(UILongPressGestureRecognizer *)recognizer{
     if(recognizer.state==UIGestureRecognizerStateBegan){
         CGPoint point=[recognizer locationInView:mapview_];
@@ -64,8 +71,12 @@
         [mapview_ setCenterCoordinate:coordinate animated:YES];
         [mapview_ removeAnnotations:mapview_.annotations];
         FarmAnnotation *farmAn=[[FarmAnnotation alloc] initWithCoordinate:coordinate];
-        [mapview_ addAnnotation:farmAn];
-
+        LocationService *locationService=[[LocationService alloc] init];
+        CLLocation *location=[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+        [locationService startGeoCoding:location withCompleteHandle:^(NSArray *address) {
+            farmAn.title=[address componentsJoinedByString:@""];
+            [mapview_ addAnnotation:farmAn];
+        }];
     }
     
 }

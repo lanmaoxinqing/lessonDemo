@@ -26,7 +26,6 @@
     if(launchOptions){
         NSDictionary *userInfo=[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
         [self showNotification:userInfo];
-        
     }
     
     return YES;

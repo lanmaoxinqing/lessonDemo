@@ -120,6 +120,7 @@
 - (id)previewController:(QLPreviewController *)previewController previewItemAtIndex:(NSInteger)idx
 {
     return [NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IOS.doc"]];
+//    return [NSURL URLWithString:@"192.168.1.35:36/Shared/res/%E9%A1%B9%E7%9B%AE%E7%BC%96%E5%8F%B7%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE.doc"];
 }
 
 

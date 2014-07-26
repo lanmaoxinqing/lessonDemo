@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationService.h"
+#import "ZBarSDK.h"
 
-@interface ListTableViewController : UITableViewController{
+@interface ListTableViewController : UITableViewController<ZBarReaderDelegate>{
     UINavigationController *nav_;
     UIBarButtonItem *backItem_;
     NSArray *datas_;
