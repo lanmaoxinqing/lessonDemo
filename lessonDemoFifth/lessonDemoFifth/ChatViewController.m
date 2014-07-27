@@ -28,7 +28,7 @@
     chats_=[NSMutableArray new];
     [super viewDidLoad];
     [self openUDPServer];
-    self.automaticallyAdjustsScrollViewInsets=NO;
+//    self.automaticallyAdjustsScrollViewInsets=NO;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -71,7 +71,7 @@
     [udpSocket_ enableBroadcast:YES error:&error];
     
     //加入群里，能接收到群里其他客户端的消息
-    [udpSocket_ joinMulticastGroup:@"224.0.0.2" error:&error];
+    [udpSocket_ joinMulticastGroup:@"60.190.61.107" error:&error];
     
    	//启动接收线程
 	[udpSocket_ receiveWithTimeout:-1 tag:0];
@@ -85,7 +85,7 @@
 	[sendString appendString:message];
 	//开始发送
 	BOOL res = [udpSocket_ sendData:[sendString dataUsingEncoding:NSUTF8StringEncoding]
-                             toHost:@"224.0.0.2"
+                             toHost:@"60.190.61.107"
                                port:4333
                         withTimeout:-1
                 
@@ -105,7 +105,6 @@
 #pragma mark UDP Delegate Methods
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port
 {
-    
     [udpSocket_ receiveWithTimeout:-1 tag:0];
 	NSString *info=[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
 	[chats_ addObject:info];
